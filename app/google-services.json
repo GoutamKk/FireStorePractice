@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1034249750873",
+    "project_id": "disco-beach-237102",
+    "storage_bucket": "disco-beach-237102.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1034249750873:android:4e35806f1c8aa19f5fa448",
+        "android_client_info": {
+          "package_name": "com.example.firestorepractice"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt1WtmKb9lMDSKuFJgoa4Dob1m57-ZZDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
