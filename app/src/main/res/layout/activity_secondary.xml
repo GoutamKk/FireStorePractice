@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:fitsSystemWindows="true"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondaryActivity">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:id="@+id/app_bar"
+        android:layout_height="wrap_content"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tool_bar"
+            android:background="#FF6E40"
+            app:navigationIcon="@drawable/update_24"
+            app:title="FireStore"
+            app:layout_scrollFlags="scroll|enterAlways"
+            />
+    </com.google.android.material.appbar.AppBarLayout>
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:orientation="vertical"
+            >
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Text Enter"
+                android:layout_marginVertical="12dp"
+                />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_anchor="@+id/nested_scroll"
+        app:layout_anchorGravity="bottom"
+        android:id="@+id/bottom_view"
+        app:fabAnchorMode="cradle"
+        app:fabAlignmentMode="center"
+        android:fitsSystemWindows="true"
+        app:fabCradleMargin="8dp"
+        app:fabCradleVerticalOffset="12dp"
+        android:layout_gravity="bottom"
+        app:fabCradleRoundedCornerRadius="16dp"
+        android:backgroundTint="@color/white"
+        app:fabAnimationMode="scale"
+        >
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:menu="@menu/bottom_menu"
+            android:id="@+id/bottom_toolbar"
+            android:background="#00FFFFFF"
+            app:itemTextColor="@color/black"
+            app:labelVisibilityMode="labeled"
+            android:elevation="0dp"
+            android:layout_marginEnd="15dp"
+            android:visibility="visible"
+            />
+    </com.google.android.material.bottomappbar.BottomAppBar>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_24"
+        android:id="@+id/float_btn"
+        app:shapeAppearanceOverlay="@style/fab_icon_rounded"
+        app:layout_anchor="@+id/bottom_view"
+        app:layout_anchorGravity="center"
+        app:maxImageSize="40dp"
+        android:backgroundTint="@color/white"
+        android:elevation="8dp"
+        />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

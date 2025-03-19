@@ -1,6 +1,7 @@
 package com.example.firestorepractice
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.text.isDigitsOnly
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -42,6 +44,13 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
         binding.recyclerId.layoutManager = LinearLayoutManager(this)
         binding.recyclerId.adapter = adapter
 
+        binding.appBar.setOnClickListener {
+            startActivity(Intent(this,SecondaryActivity::class.java))
+        }
+        binding.appBar1.setOnClickListener {
+            startActivity(Intent(this,PaymentActivity::class.java))
+        }
+
         db.collection(collectionName).addSnapshotListener { value, error ->
             if (error != null) {
                 return@addSnapshotListener
@@ -51,13 +60,13 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
 
                 when (values.type) {
                     DocumentChange.Type.ADDED -> {
-                        objectModel?.let { studentslist.add(it) }
+                        objectModel.let { studentslist.add(it) }
                         Log.e("", "objectModel: ${studentslist.size}")
-                        Log.e("", "objectModel: ${studentslist}")
+                        Log.e("", "objectModel: $studentslist")
                     }
 
                     DocumentChange.Type.MODIFIED -> {
-                        objectModel?.let {
+                        objectModel.let {
                             val index = getIndex(objectModel)
                             if (index > -1) {
                                 studentslist.set(index, objectModel)
@@ -67,7 +76,7 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
                     }
 
                     DocumentChange.Type.REMOVED -> {
-                        objectModel?.let {
+                        objectModel.let {
                             val index = getIndex(objectModel)
                             if (index > -1) {
                                 studentslist.removeAt(index)
@@ -95,7 +104,7 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
             val addBtn = dialog.findViewById<Button>(R.id.add_btn)
 
             addBtn.setOnClickListener {
-                if(inputRoll.editableText.toString().isEmpty()){
+                if(inputRoll.editableText.toString().isEmpty() && !inputRoll.editableText.toString().isDigitsOnly()){
                     inputRoll.error="Enter Roll No"
                 }
                 else if(inputData.editableText.toString().isEmpty()){
@@ -143,7 +152,6 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
         return fireData
     }
 
-
     override fun onDelete(position: Int) {
         val dialog = AlertDialog.Builder(this)
         dialog.setTitle("Delete")
@@ -176,11 +184,10 @@ class MainActivity : AppCompatActivity() , StudentAdaptor.StudentInterface{
         )
         dialog.show()
 
-        binding.addBtn.text="Update"
+        binding.addBtn.setText("Update")
         binding.addRoll.setText(studentslist[position].rollno.toString())
         binding.addName.setText(studentslist[position].name)
         binding.addSubject.setText(studentslist[position].subject)
-
 
             binding.addBtn.setOnClickListener {
                 if(binding.addRoll.editableText.toString().isEmpty()){
